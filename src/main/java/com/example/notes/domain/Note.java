@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import java.time.LocalDateTime; // Import for LocalDateTime
 
 @Entity
 public class Note {
@@ -13,28 +14,50 @@ public class Note {
   private Long id;
 
   private String contents;
+  private String createdBy; // New field for CreatedBy
+  private LocalDateTime createdAt; // New field for CreatedAt
 
-  // Constructors, getters, and setters
+  // Default constructor
   public Note() {
   }
 
-  public Note(String contents) {
-    this.contents = contents;
-  }
+  // Constructor with contents, createdBy, and createdAt
+  public Note(String contents, String createdBy, LocalDateTime createdAt) {
+        this.contents = contents;
+        this.createdBy = createdBy;
+        this.createdAt = createdAt;
+    }
 
-  public Long getId() {
-    return id;
-  }
+    // Getters and Setters
+    public Long getId() {
+        return id;
+    }
 
-  public void setId(Long id) {
-    this.id = id;
-  }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-  public String getContents() {
-    return contents;
-  }
+    public String getContents() {
+        return contents;
+    }
 
-  public void setContents(String contents) {
-    this.contents = contents;
-  }
+    public void setContents(String contents) {
+        this.contents = contents;
+    }
+
+    public String getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
 }
